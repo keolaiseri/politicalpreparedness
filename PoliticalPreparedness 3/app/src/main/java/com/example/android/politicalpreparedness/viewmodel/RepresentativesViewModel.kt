@@ -14,6 +14,10 @@ import kotlin.random.Random
 
 class RepresentativesViewModel(app: Application, private val state: SavedStateHandle): BaseViewModel(app, state) {
 
+    companion object{
+        const val BUNDLE_KEY = "KEY"
+    }
+
     private val repository = RepresentativesRepository(CivicsApiInstance)
 
     val representatives = repository.representatives
@@ -30,8 +34,12 @@ class RepresentativesViewModel(app: Application, private val state: SavedStateHa
 
 
     init {
+
         _address.value = Address("", "","","New York","")
         _states.value = app.resources.getStringArray(R.array.states).toList()
+        state.set(BUNDLE_KEY, _address.value)
+        state.set(BUNDLE_KEY, _states.value)
+
     }
 
     fun onSearchButtonClick() {
