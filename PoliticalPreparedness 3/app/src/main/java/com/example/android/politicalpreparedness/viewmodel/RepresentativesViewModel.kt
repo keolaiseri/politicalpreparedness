@@ -28,12 +28,6 @@ class RepresentativesViewModel(app: Application, private val state: SavedStateHa
 
     val selectedStateIndex = MutableLiveData<Int>()
 
-    val liveData = state.getLiveData("liveData", Random.nextInt().toString())
-
-    fun saveState() {
-        state.set("liveData", liveData.value)
-    }
-
 
     init {
         _address.value = Address("", "","","New York","")
