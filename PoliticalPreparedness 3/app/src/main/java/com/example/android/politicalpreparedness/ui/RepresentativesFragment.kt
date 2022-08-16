@@ -37,6 +37,8 @@ class RepresentativesFragment : BaseFragment() {
     }
     private lateinit var requestLocationPermissionLauncher : ActivityResultLauncher<String>
     private lateinit var enableLocationSettingLauncher : ActivityResultLauncher<IntentSenderRequest>
+    private lateinit var binding: RepresentativesFragmentBinding
+    
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
