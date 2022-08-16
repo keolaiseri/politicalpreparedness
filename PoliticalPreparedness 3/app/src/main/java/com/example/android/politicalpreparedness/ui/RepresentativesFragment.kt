@@ -19,6 +19,7 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.SavedStateViewModelFactory
 import com.example.android.politicalpreparedness.R
 import androidx.navigation.fragment.findNavController
 import com.example.android.politicalpreparedness.data.Address
@@ -31,8 +32,9 @@ import java.util.*
 class RepresentativesFragment : BaseFragment() {
 
     private val navController by lazy { findNavController() }
-    override val viewModel: RepresentativesViewModel by viewModels()
-
+    override val viewModel: RepresentativesViewModel by viewModels(){
+        SavedStateViewModelFactory(requireActivity().application, this)
+    }
     private lateinit var requestLocationPermissionLauncher : ActivityResultLauncher<String>
     private lateinit var enableLocationSettingLauncher : ActivityResultLauncher<IntentSenderRequest>
 
